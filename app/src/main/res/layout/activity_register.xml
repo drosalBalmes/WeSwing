@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#CCCCCC"
+    tools:context=".Register">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:padding="16dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/NameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:hint=" Nombre: "/>
+
+            <Spinner
+                android:id="@+id/spnGender"
+                android:layout_width="365dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/white"
+                android:entries="@array/genero" />
+
+
+            <EditText
+                android:id="@+id/mailEdit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:layout_marginTop="5dp"
+                android:hint=" Mail: "/>
+
+
+            <EditText
+                android:id="@+id/contraEdit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:layout_marginTop="5dp"
+                android:hint=" Contraseña: "
+                android:password="true"/>
+
+            <Spinner
+                android:id="@+id/spnLang"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:layout_marginTop="5dp"
+                android:entries="@array/idioma"/>
+
+
+            <Spinner
+                android:id="@+id/spnCountry"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:layout_marginTop="5dp"
+                android:entries="@array/pais"/>
+
+            <Spinner
+                android:id="@+id/spnCity"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:layout_marginTop="5dp"
+                android:entries="@array/ciudad"/>
+
+
+            <EditText
+                android:id="@+id/poblacionEdit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:layout_marginTop="5dp"
+                android:hint=" Poblacion: "/>
+
+            <Spinner
+                android:id="@+id/spnFollower"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:layout_marginTop="5dp"
+                android:entries="@array/follower"/>
+            
+            <Switch
+                android:id="@+id/dancerSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:layout_marginTop="5dp"
+                android:text=" Dancer"/>
+
+            <Switch
+                android:id="@+id/teacherSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:layout_marginTop="5dp"
+                android:text=" Teacher"/>
+
+            <Switch
+                android:id="@+id/musicSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:layout_marginTop="5dp"
+                android:text=" Music" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UPLOAD PICTURE"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="REGISTER"
+                android:alpha="0.45"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
