@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.weswing.databinding.ActivityMainBinding;
 import com.example.weswing.fragments.CalendarFragment;
@@ -17,12 +18,14 @@ import com.example.weswing.fragments.StarFragment;
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
+    TextView toolbarTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        toolbarTitle = findViewById(R.id.toolbar_title);
         replaceFragment(new FeedFragment());
         bottomNavSelected();
     }
@@ -58,5 +61,9 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.flFragment,frahment);
         fragmentTransaction.commit();
 
+    }
+
+    public void changeTitle(String text){
+        toolbarTitle.setText(text);
     }
 }
