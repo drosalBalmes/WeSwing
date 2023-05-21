@@ -3,47 +3,32 @@ package com.example.weswing.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.weswing.objects.Moguda;
 import com.example.weswing.R;
+import com.example.weswing.adapters.AdapterCalendari;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CalendarFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class CalendarFragment extends Fragment {
+    View vista;
+    TextView amics, assistire, tot;
+    TextView filtresTv;
+    RecyclerView mogudes;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    List<TextView> tvs = new ArrayList<>();
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public CalendarFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CalendarFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static CalendarFragment newInstance(String param1, String param2) {
         CalendarFragment fragment = new CalendarFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -51,16 +36,94 @@ public class CalendarFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_calendar, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        vista = inflater.inflate(R.layout.fragment_calendar, container, false);
+        init();
+        initRecyclerTots();
+
+        return vista;
+    }
+
+    public void init() {
+        amics = vista.findViewById(R.id.amicsBTN);
+        amics.setOnClickListener(v -> {
+            clickTV(amics);
+            initRecyclerAmics();
+        });
+
+        assistire = vista.findViewById(R.id.asistireBTN);
+        assistire.setOnClickListener(v -> {
+            clickTV(assistire);
+            initRecyclerAssistire();
+        });
+
+        tot = vista.findViewById(R.id.totsBTN);
+        tot.setOnClickListener(v -> {
+            clickTV(tot);
+            initRecyclerTots();
+        });
+        tvs.add(amics);
+        tvs.add(assistire);
+        tvs.add(tot);
+
+        filtresTv = vista.findViewById(R.id.filtresTV);
+        mogudes = vista.findViewById(R.id.recyclerMogudes);
+    }
+
+    public void initRecyclerTots() {
+        List<Moguda> mogudaList = new ArrayList<>();
+
+        mogudaList.add(new Moguda("12 de abril de 2010", "Swing jam de dimarts!", R.drawable.pfp, "Organitzat per mi", "Barcelona, Spain", "12/04/2017-18/04/2017 | 2horas", "1 assistents | 1 amics"));
+        mogudaList.add(new Moguda("24 de abril de 2011", "Bailadores baileando", R.drawable.pfp, "Organitzat per tu", "Murcia, Spain", "24/04/2017-18/04/2017 | 5horas", "267 assistents | 3 amics"));
+        mogudaList.add(new Moguda("44 de junio de 2012", "Y si vemos One Piece?", R.drawable.pfp, "Organitzat per la que te cuento", "Mi casa, Spain", "44/06/2017-18/04/2017 | 8horas", "4 assistents | 0 amics"));
+        mogudaList.add(new Moguda("28 de agosto de 2013", "Venga va a ver One Piece", R.drawable.pfp, "Organitzat per Oda", "Gibraltar, Spain", "28/08/2017-2/04/2017 | 9horas", "9 assistents | 0 amics"));
+        mogudaList.add(new Moguda("29 de agosto de 2014", "Godaaaaa", R.drawable.pfp, "Organitzat per un fan", "Madrid, Spain", "29/08/2017-16/04/2017 | 1horas", "10 assistents | 0 amics"));
+        mogudaList.add(new Moguda("25 de diciembre de 2015", "Nakama fest", R.drawable.pfp, "Organitzat per Royal", "Madrid, Spain", "25/12/2017-8/04/2017 | 2horas", "244 assistents | 3 amics"));
+
+        AdapterCalendari adapter = new AdapterCalendari(mogudaList);
+        mogudes.setLayoutManager(new LinearLayoutManager(vista.getContext(), LinearLayoutManager.VERTICAL, false));
+        mogudes.setAdapter(adapter);
+    }
+
+    public void initRecyclerAmics() {
+        List<Moguda> mogudesList = new ArrayList<>();
+
+        mogudesList.add(new Moguda("12 de abril de 2010", "Swing jam de dimarts!", R.drawable.pfp, "Organitzat per mi", "Barcelona, Spain", "12/04/2017-18/04/2017 | 2horas", "1 assistents | 1 amics"));
+        mogudesList.add(new Moguda("24 de abril de 2011", "Bailadores baileando", R.drawable.pfp, "Organitzat per tu", "Murcia, Spain", "24/04/2017-18/04/2017 | 5horas", "267 assistents | 3 amics"));
+        mogudesList.add(new Moguda("25 de diciembre de 2015", "Nakama fest", R.drawable.pfp, "Organitzat per Royal", "Madrid, Spain", "25/12/2017-8/04/2017 | 2horas", "244 assistents | 3 amics"));
+
+
+        AdapterCalendari adapter = new AdapterCalendari(mogudesList);
+        mogudes.setLayoutManager(new LinearLayoutManager(vista.getContext(), LinearLayoutManager.VERTICAL, false));
+        mogudes.setAdapter(adapter);
+    }
+
+    public void initRecyclerAssistire() {
+        List<Moguda> mogudaList = new ArrayList<>();
+
+        mogudaList.add(new Moguda("44 de junio de 2012", "Y si vemos One Piece?", R.drawable.pfp, "Organitzat per la que te cuento", "Mi casa, Spain", "44/06/2017-18/04/2017 | 8horas", "4 assistents | 0 amics"));
+
+        AdapterCalendari adapter = new AdapterCalendari(mogudaList);
+        mogudes.setLayoutManager(new LinearLayoutManager(vista.getContext(), LinearLayoutManager.VERTICAL, false));
+        mogudes.setAdapter(adapter);
+    }
+
+    public void clickTV(TextView clicked) {
+        clicked.setTextColor(getResources().getColor(R.color.white));
+        clicked.setBackgroundColor(getResources().getColor(R.color.tematicRed));
+
+        for (TextView tv :
+                tvs) {
+            if (tv.equals(clicked)) {
+                tv.setTextColor(getResources().getColor(R.color.white));
+                tv.setBackgroundColor(getResources().getColor(R.color.tematicRed));
+            } else {
+                tv.setTextColor(getResources().getColor(R.color.textgrey));
+                tv.setBackgroundColor(getResources().getColor(R.color.grey));
+            }
+        }
     }
 }
