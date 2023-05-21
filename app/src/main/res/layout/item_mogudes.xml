@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/TVData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="17 de abril de 2017"
+        android:textSize="15sp"
+        android:paddingLeft="5sp"
+        android:textColor="@color/tematicRed"
+        android:background="#E1D6D6"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:id="@+id/IVperfil"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_below="@+id/TVData"
+        android:layout_marginTop="10sp" />
+
+    <TextView
+        android:id="@+id/TitleTV"
+        android:layout_marginTop="10sp"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TVData"
+        android:layout_alignParentEnd="true"
+        android:text="I'm begginning to see the light"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/OrganitzaTV"
+        android:layout_marginTop="10sp"
+        android:layout_width="270sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TitleTV"
+        android:layout_alignParentEnd="true"
+        android:text="Organitzat per Mi"
+        android:textSize="16sp"
+
+        />
+
+    <TextView
+        android:id="@+id/duracio"
+        android:layout_marginTop="10sp"
+        android:layout_width="270sp"
+        android:maxWidth="270sp"
+        android:layout_height="20sp"
+        android:maxHeight="20sp"
+        android:layout_below="@+id/OrganitzaTV"
+        android:layout_alignParentEnd="true"
+        android:text="17/04/2017-18/04/2017 | 1 horas"
+        android:textSize="16sp"
+
+        />
+
+    <TextView
+        android:id="@+id/lloc"
+        android:layout_marginTop="10sp"
+        android:layout_width="270sp"
+        android:maxWidth="270sp"
+        android:layout_height="20sp"
+        android:maxHeight="20sp"
+        android:layout_below="@+id/duracio"
+        android:layout_alignParentEnd="true"
+        android:text="Madrid, Spain"
+        android:textSize="16sp"
+
+        />
+
+    <TextView
+        android:id="@+id/assistentsTV"
+        android:layout_marginTop="10sp"
+        android:layout_width="270sp"
+        android:maxWidth="270sp"
+        android:layout_height="20sp"
+        android:maxHeight="20sp"
+        android:layout_below="@+id/lloc"
+        android:layout_alignParentEnd="true"
+        android:text="0 assistents | 0 amics"
+        android:textSize="16sp"
+
+        />
+
+</RelativeLayout>

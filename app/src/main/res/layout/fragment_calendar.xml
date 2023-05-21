@@ -1,14 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="520sp"
     tools:context=".fragments.CalendarFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Calendar Fragment" />
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_width="330sp"
+        android:layout_height="60sp"
+        android:layout_marginTop="10sp"
+        >
 
-</FrameLayout>
+        <TableRow
+            tools:ignore="UselessParent">
+            <TextView
+                android:id="@+id/amicsBTN"
+                android:background="@color/grey"
+                android:layout_width="110sp"
+                android:layout_height="60sp"
+                android:paddingLeft="5sp"
+                android:paddingTop="25sp"
+                android:text="AMICS"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/totsBTN"
+                android:background="@color/grey"
+                android:layout_width="110sp"
+                android:layout_height="60sp"
+                android:paddingLeft="5sp"
+                android:paddingTop="25sp"
+                android:text="TOTS"
+                android:textSize="20sp" />
+
+            <TextView
+                android:background="@color/grey"
+                android:id="@+id/asistireBTN"
+                android:layout_width="110sp"
+                android:layout_height="60sp"
+                android:paddingLeft="5sp"
+                android:paddingTop="25sp"
+                android:text="ASSISTIRE"
+                android:textSize="20sp" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/filtresTV"
+        android:layout_below="@+id/tableLayout"
+        android:layout_marginTop="10sp"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:background="@color/grey2"
+        android:textSize="20sp"
+        android:text="Filtres: Espanya, Barcelona"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerMogudes"
+        android:layout_width="match_parent"
+        android:layout_height="380sp"
+        android:layout_below="@id/tableLayout"
+        android:layout_marginTop="10sp"/>
+
+
+</RelativeLayout>

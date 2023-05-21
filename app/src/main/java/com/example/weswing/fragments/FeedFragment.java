@@ -89,6 +89,6 @@ public class FeedFragment extends Fragment implements SelectListenerNovetats {
     @Override
     public void onItemClicked(Novetats novetats) {
         selectedNovetat = novetats;
-        //que te lleve al otro fragment
+        ((MainActivity)getActivity()).replaceFragment(new MogudesFragment());
     }
 }
